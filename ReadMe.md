@@ -1,6 +1,12 @@
+# MarkDown基本语法
+[官方文档速查](https://markdown.com.cn/cheat-sheet.html#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95)
 
 ## 目录--ThinkingClaude
 https://mp.weixin.qq.com/s/IAKD0FfcYehs5FsDkLbTJQ
+
+## 小说
+- 李书生 
+```https://mp.weixin.qq.com/s/lEA18CL_yVJj6KvsabPzeg```
 
 ## 目录--李继刚
 ### 模块
