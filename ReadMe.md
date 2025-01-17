@@ -8,6 +8,10 @@ https://mp.weixin.qq.com/s/IAKD0FfcYehs5FsDkLbTJQ
 - 李书生 
 ```https://mp.weixin.qq.com/s/lEA18CL_yVJj6KvsabPzeg```
 
+## 论文
+- 知乎公开
+```https://zhuanlan.zhihu.com/p/688171911```
+
 ## 目录--李继刚
 ### 模块
 - 抽象之梯
