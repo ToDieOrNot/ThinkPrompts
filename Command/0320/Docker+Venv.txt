@@ -1,0 +1,22 @@
+【升级后docker启动命令】
+sudo docker run -it --gpus all -p 8000:8000 -p 8001:8001 modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+
+sudo docker ps -a
+
+sudo docker start 0e946715f989
+
+sudo docker exec -it 0e946715f989 /bin/bash
+
+sudo docker cp /data/chatts_model/ 0e946715f989:/home/chatts_model
+
+cd /var/modelenv && source chattts/bin/activate
+cd /var/modelenv && source chatttsui/bin/activate
+cd /var/modelenv && source cosyvoice300m/bin/activate
+cd /var/modelenv && source asr-llm-tts/bin/activate
+cd /var/modelenv && source bailing/bin/activate
+cd /var/modelenv && source seed-vc/bin/activate
+
+
+
+apt update -y
+apt install ffmpeg htop screen sysstat unzip -y

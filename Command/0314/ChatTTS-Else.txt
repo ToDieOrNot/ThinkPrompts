@@ -1,0 +1,7 @@
+conda deactivate
+sudo mkdir -p /ChatTTS/Exp2 && cd /ChatTTS/Exp2
+conda create --name Exp2 python=3.11 -y
+conda activate Exp2
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip nvidia-cuda-toolkit -y
+python -m pip install --upgrade pip

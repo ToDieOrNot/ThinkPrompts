@@ -1,0 +1,17 @@
+watch -n 0.1 nvidia-smi
+
+Shutdown -s -t 300
+
+apt install pipenv  +  pipenv --venv
+
+mkdir -p /var/modelenv && cd /var/modelenv && python -m venv chattts
+
+cd /var/modelenv && source chattts/bin/activate
+
+python -m pip install --upgrade pip
+
+deactivate
+
+cd /home/ChatTTS && pip install -r requirements.txt
+
+cd /var/modelenv && rm -r envtts/

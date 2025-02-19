@@ -1,0 +1,31 @@
+sudo docker run -it --gpus all modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+
+sudo docker ps -a
+
+sudo docker start 0e946715f989
+
+sudo docker exec -it 0e946715f989 /bin/bash
+
+sudo docker cp /data/chatts_model/ 0e946715f989:/home/chatts_model
+
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv chattts
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv chatttsui
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv cosyvoice300m
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv asr-llm-tts
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv bailing
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv seed-vc
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv bailing
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv funasr
+
+cd /var/modelenv && source chattts/bin/activate
+cd /var/modelenv && source chatttsui/bin/activate
+cd /var/modelenv && source cosyvoice300m/bin/activate
+cd /var/modelenv && source asr-llm-tts/bin/activate
+cd /var/modelenv && source bailing/bin/activate
+cd /var/modelenv && source seed-vc/bin/activate
+cd /var/modelenv && source bailing/bin/activate
+cd /var/modelenv && source funasr/bin/activate
+
+
+apt update -y
+apt install ffmpeg htop screen sysstat unzip -y

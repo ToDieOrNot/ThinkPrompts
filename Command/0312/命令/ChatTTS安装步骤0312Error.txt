@@ -1,0 +1,121 @@
+## 0、初始化系统
+- sudo apt update -y
+- sudo apt install ffmpeg htop screen sysstat unzip -y
+
+## 1、创建conda
+- conda --version
+- conda env list
+- conda create --name myenv python=3.10.9 -y
+- pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+- python -m pip install --upgrade pip
+
+## 2、进入conda
+- conda activate myenv //进入
+- conda deactivate //退出
+- conda env remove --name myenv //删除
+
+## 3、克隆ChatTTS
+### 3.1 基础方法克隆【PyTorch版本错误】
+- sudo apt update -y
+- sudo apt install ffmpeg htop screen sysstat unzip -y
+- sudo mkdir /Func1ChatTTS && cd /Func1ChatTTS
+- conda create --name func1 python=3.10.9 -y
+- conda activate func1
+- pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+- python -m pip install --upgrade pip
+- sudo wget https://www.freedidi.com/wp-content/uploads/2024/06/ChatTTS-ui-main.zip
+- sudo unzip ChatTTS-ui-main.zip && sudo rm -r ChatTTS-ui-main.zip
+- cd /Func1ChatTTS/ChatTTS-ui-main && pip install -r requirements.txt
+- pip install torch torchaudio pandas
+- sudo mkdir -p /Func1ChatTTS/ChatTTS-ui-main/static/wavs
+- sudo cd /Func1ChatTTS/ChatTTS-ui-main && sudo chmod 777 ./* && python app.py
+
+### 3.2 modelscope代码部署
+【参考：https://blog.csdn.net/weixin_44259499/article/details/139640987 https://blog.csdn.net/yxk666/article/details/139357389】
+- conda activate myenv
+- sudo mkdir /ChatTTS && cd /ChatTTS
+- pip install modelscope
+- pip install torch==2.1.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
+
+【
+- sudo git clone https://gitcode.com/2noise/ChatTTS.git ChatTTS
+- cd ChatTTS && pip install -r requirements.txt
+或
+- sudo git lfs install && sudo git clone https://www.modelscope.cn/pzc163/chatTTS.git ChatTTS-Model
+- pip install torch==2.1.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118 //使用CUDA加速：
+ 】
+- pip install modelscope
+
+### 3.3 modelscope LFS方式【PyTorch版本错误】
+- conda activate myenv
+- sudo mkdir /ChatTTS && cd /ChatTTS
+- sudo git lfs install //网络不佳继续下载：git lfs pull
+- sudo git clone https://www.modelscope.cn/pzc163/chatTTS.git ChatTTS-Model
+- sudo git clone https://gitcode.com/2noise/ChatTTS.git ChatTTS //下载依赖包
+- cd /ChatTTS/ChatTTS && pip install -r requirements.txt
+- pip install git+https://github.com/NVIDIA/TransformerEngine.git@stable
+- pip install flash-attn --no-build-isolation //不要安装
+- python examples/web/webui.py
+
+### 3.4 Github方法【https://github.com/2noise/ChatTTS】
+- sudo apt update -y
+- sudo apt install ffmpeg htop screen sysstat unzip -y
+- sudo mkdir /Func4ChatTTS && cd /Func4ChatTTS
+- sudo git clone https://github.com/2noise/ChatTTS && cd ChatTTS
+- conda create --name func4 python=3.11 -y && conda activate func4
+- pip install --upgrade -r requirements.txt
+- pip install safetensors vllm==0.2.7 torchaudio
+- pip install git+https://github.com/NVIDIA/TransformerEngine.git@stable
+
+
+
+
+————————————————————————————————————————————————
+python /ChatTTS/ChatTTS/examples/web/webui.py
+————————————————————————————————————————————————
+
+## --- 硬件查询 ---
+
+### 查询CPU
+- lscpu
+
+### 查询GPU
+- nvidia-smi
+
+### 查询内存
+- free -h
+
+### 查询占用
+- top //整体
+- du -sh ./* | sort -h //当前空间
+- df -h //磁盘
+- cat /proc/meminfo //系统内存
+- vmstat -s //虚拟内存
+- nvidia-smi //GPU
+sudo netstat -tulnp | grep ':80' //端口
+sudo lsof -i :80 //端口
+sudo lsof -i | grep nginx //进程
+sudo ps aux | grep python //进程
+sudo kill $(sudo lsof -t -i:8080) //杀死端口进程
+sudo killall -9 python //终止所有进程
+
+### 后台命令
+- screen -ls //查看全部绘画
+- screen -S sr1 //新建
+- screen -r sr1 //重新连接
+- screen -d sr1 //强制重新连接
+- ctrl A => D //返回终端
+- screen -S r1 -X quit //强制删除会话
+- screen -wipe //清楚过期会话
+- nohup python -u AAA.py > out.log 2>&1 &
+————————————————————————————————————————————————
+
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip -y
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+sudo apt install docker-ce docker-ce-cli containerd.io -y
+sudo mkdir -p /ChatTTS/plan5 && cd /ChatTTS/plan5 && sudo git clone https://github.com/jianchang512/ChatTTS-ui.git chat-tts-ui
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+cd /ChatTTS/plan5/chat-tts-ui && sudo docker compose -f docker-compose.gpu.yaml up -d
+//docker compose logs -f --no-log-prefix

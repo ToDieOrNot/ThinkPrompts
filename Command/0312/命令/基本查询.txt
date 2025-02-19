@@ -1,0 +1,18 @@
+## 系统更新
+sudo apt update -y
+
+## 查询CPU
+- lscpu
+
+## 查询GPU
+- nvidia-smi
+
+## 查询内存
+- free -h
+
+## 查询占用
+- top //整体
+- df -h //磁盘
+- cat /proc/meminfo //系统内存
+- vmstat -s //虚拟内存
+- nvidia-smi //GPU

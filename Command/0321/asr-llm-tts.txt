@@ -1,0 +1,24 @@
+【    https://github.com/ABexit/ASR-LLM-TTS#    】匹配torch 2.5.1
+
+sudo docker ps -a
+
+sudo docker start 5fb325b28518
+
+sudo docker exec -it 5fb325b28518 /bin/bash
+
+cd /var/modelenv && source asr-llm-tts/bin/activate && cd /home/project/asr-llm-tts
+
+git lfs install
+
+apt install -y libcudnn9-cuda-12 libcudnn9-dev-cuda-12
+
+pip install -U peft gradio
+
+pip install onnxruntime==1.19.2
+
+pip uninstall onnxruntime-gpu
+
+pip install onnxruntime-gpu --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+
+
+##  **********  deactivate  **********

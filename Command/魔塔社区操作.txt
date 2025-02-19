@@ -1,0 +1,65 @@
+推荐使用python3.8 + tensorflow 2.13.0 + torch 2.0.1 的组合
+
+pip3 install tensorflow==2.13.0 -i https://pypi.mirrors.ustc.edu.cn/simple //【pip install tensorflow==2.13.0】
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
+命令：
+【镜像下载】sudo docker pull 镜像地址
+modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+modelscope-registry.cn-hangzhou.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+modelscope-registry.us-west-1.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+【查看Docker】sudo docker images  或【查看运行中】sudo docker ps -a
+【删除Docker】sudo docker image rm [image—id]  或sudo docker rmi [image—id]
+【运行】sudo docker run -it --name modelscope-container 镜像地址	-i（交互模式）-t（分配伪终端）
+【运行示例】sudo docker run -it modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+【停止】sudo docker stop c3da69192b22
+【测试】python -c "import torch; print(torch.__version__)"
+
+
+conda create -n modelscope python=3.8
+
+conda init
+
+conda activate
+
+conda activate modelscope
+
+python -m pip install --upgrade pip
+
+pip install torch torchvision torchaudio -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+pip install --upgrade tensorflow==1.15 -i https://pypi.tuna.tsinghua.edu.cn/simple
+或
+pip install setuptools-scm -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+pip install modelscope -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+##设置魔塔下载路径 ## 默认下载到 ~/.cache/modelscope/hub/TeleAI/TeleSpeech-ASR1.0  == /home/linux/.cache/modelscope/hub/models/TeleAI/TeleSpeech-ASR1___0
+export MODELSCOPE_CACHE='您希望的下载路径' // 【Linux】
+set MODELSCOPE_CACHE=您希望的下载路径 //【windows】
+os.environ['MODELSCOPE_CACHE'] = '您希望的下载路径' //【python】
+
+## 使用SDK下载模型
+from modelscope.hub.snapshot_download import snapshot_download
+model_dir = snapshot_download('模型ID', cache_dir='您希望的下载路径', revision='版本号')
+
+from modelscope.hub.snapshot_download import snapshot_download
+model_dir = snapshot_download('TeleAI/TeleSpeech-ASR1.0', cache_dir='/TeleSpeech/large_kespeech', revision='finetune_large_kespeech')
+
+sudo /home/linux/anaconda3/envs/TeleSpeech/bin/python test.py
+
+pip install "modelscope[nlp]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html -i https://pypi.tuna.tsinghua.edu.cn/simple //【NLP】
+或
+pip install "modelscope[CV]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html -i https://pypi.tuna.tsinghua.edu.cn/simple //【CV】
+或
+pip install "modelscope[audio]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html -i https://pypi.tuna.tsinghua.edu.cn/simple //【Audio】
+或
+pip install "modelscope[science]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html -i https://pypi.tuna.tsinghua.edu.cn/simple //【科学计算】
+
+pip install addict datasets simplejson sortedcontainers
+或
+pip install sortedcontainers -i https://pypi.mirrors.ustc.edu.cn/simple
+
+python -c "from modelscope.pipelines import pipeline;print(pipeline('word-segmentation')('今天天气不错，适合 出去游玩'))" //【验证安装1】
+或
+python -c "from modelscope.pipelines import pipeline;asr = pipeline('auto-speech-recognition', model='TeleAI/TeleSpeech-ASR1.0',download_path='/data/down/TeleSpeech-ASR1.0');result = asr('audio.wav');print(result)" //【验证安装2】

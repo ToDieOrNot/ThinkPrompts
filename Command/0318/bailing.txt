@@ -1,0 +1,22 @@
+sudo apt update -y
+
+sudo apt install ffmpeg htop screen sysstat unzip -y
+
+sudo docker run -it modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+
+sudo git config --global --unset http.proxy && sudo git config --global --unset https.proxy
+
+sudo apt install portaudio19-dev build-essential -y
+
+cd /home && sudo git clone https://github.com/wwbin2017/bailing.git
+
+cd /home/bailing && sudo chmod 777 ./* && pip install -r requirements.txt
+
+pip install modelscope pygame sounddevice playsound gtts edge_tts ChatTTS silero_vad langchain_chroma && sudo git lfs install
+
+
+
+
+
+
+

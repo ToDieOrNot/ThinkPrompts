@@ -1,0 +1,7 @@
+conda deactivate
+sudo mkdir -p /TeleSpeech && cd /TeleSpeech
+conda create --name TeleSpeech python=3.10.9 -y
+conda activate TeleSpeech
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip nvidia-cuda-toolkit -y
+python -m pip install --upgrade pip

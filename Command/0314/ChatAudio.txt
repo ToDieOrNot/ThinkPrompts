@@ -1,0 +1,29 @@
+sudo git lfs install
+sudo apt install nvidia-cuda-toolkit
+nvcc --version
+conda create --name ChatAudio python=3.10.9 -y
+conda activate ChatAudio
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+python -m pip install --upgrade pip
+pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu118
+pip install edge-tts==6.1.17 funasr==1.1.12 ffmpeg==1.4 opencv-python==4.10.0.84 transformers==4.45.2 webrtcvad==2.0.10 qwen-vl-utils==0.0.8 
+sudo apt-get install portaudio19-dev
+sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
+pip install pygame==2.6.1 langid==1.1.6 langdetect==1.0.9 accelerate==0.33.0 PyAudio==0.2.14
+sudo mkdir /ChatAudio && cd /ChatAudio && git clone https://github.com/ABexit/ASR-LLM-TTS.git
+cd /ChatAudio/ASR-LLM-TTS && sudo chmod 777 ./*
+conda install -c conda-forge pynini=2.1.6
+pip install WeTextProcessing --no-deps
+pip install HyperPyYAML==1.2.2 modelscope==1.15.0 onnxruntime==1.19.2 openai-whisper==20231117 importlib_resources==6.4.5 sounddevice==0.5.1 matcha-tts==0.0.7.0
+pip install modelscope langdetect langid
+
+sudo mkdir -p /home/down/SenseVoiceSmall && sudo git clone https://www.modelscope.cn/iic/SenseVoiceSmall.git
+
+sudo mkdir -p /home/down/Qwen2.5-1.5B-Instruct && sudo git clone https://www.modelscope.cn/Qwen/Qwen2.5-1.5B-Instruct.git
+
+
+cd /ChatAudio/ASR-LLM-TTS  && python 13_SenceVoice_QWen2.5_edgeTTS_realTime.py
+cd /ChatAudio/ASR-LLM-TTS  && python 10_SenceVoice_QWen2.5_cosyVoice.py
+
+
+git clone https://www.modelscope.cn/Qwen/Qwen2.5-1.5B-Instruct.git

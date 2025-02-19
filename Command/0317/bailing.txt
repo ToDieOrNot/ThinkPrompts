@@ -1,0 +1,7 @@
+https://github.com/wwbin2017/bailing
+
+conda env list
+
+sudo docker pull modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+
+python -m pip install --upgrade pip

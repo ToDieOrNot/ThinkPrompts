@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip -y
+sudo mkdir /ChatTTSV6  && cd /ChatTTSV6

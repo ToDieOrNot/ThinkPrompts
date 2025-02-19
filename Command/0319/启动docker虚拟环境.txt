@@ -1,0 +1,44 @@
+sudo docker ps -a
+
+sudo docker start 054effb99e4c
+
+sudo docker exec -it 054effb99e4c /bin/bash
+
+ls /var/modelenv/
+
+cd /var/modelenv && source chattts/bin/activate
+
+python -m pip install --upgrade pip
+
+----------------- 其他 -----------------
+
+## 来源1：https://gitee.com/luochenyeling/ChatTTS
+## 来源2：https://www.modelscope.cn/models/ModelM/ChatTTS-ModelScope/summary
+mkdir -p /home/code && touch /home/code/start_chattts_pip1.py
+
+pip list | grep -q IPython || pip install IPython && pip list | grep -q gradio || pip install gradio && pip list | grep -q torch || pip install torch && pip list | grep -q ChatTTS || pip install ChatTTS && pip list | grep -q vocos || pip install vocos && pip list | grep -q WeTextProcessing || pip install WeTextProcessing && pip list | grep -q vector_quantize_pytorch || pip install vector_quantize_pytorch && pip list | grep -q torchaudio || pip install torchaudio && pip list | grep -q torchvision || pip install torchvision
+
+pip3 install tensorflow==2.13.0 -i https://pypi.mirrors.ustc.edu.cn/simple
+
+pip install WeTextProcessing pynini nvidia-cublas-cu11 nvidia-cudnn-cu11
+
+pip install TensorRT
+
+pip install typing_extensions==4.12.2
+
+/home/pzc163/ChatTTS
+/home/ChatTTS-ModelScope/
+
+import torch
+import ChatTTS
+from IPython.display import Audio
+import torchaudio
+model_path = "/home/pzc163/ChatTTS"
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+chat = ChatTTS.Chat()
+# chat.load(source='local',device='cuda',compile=True,custom_path=model_path)
+chat.load(source='local',custom_path=model_path)
+texts = ["你好，欢迎使用ChatTTS之ModelScope版!"]
+wavs = chat.infer(texts, use_decoder=True)
+# Audio(wavs[0], rate=24_000, autoplay=True)
+torchaudio.save("./output.wav", torch.from_numpy(wavs[0]), 24000)

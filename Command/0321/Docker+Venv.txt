@@ -1,0 +1,26 @@
+【升级后docker启动命令】
+sudo docker run -it --gpus all -p 8000:8000 -p 8001:8001 TTS-all/first:latest /bin/bash
+
+sudo docker ps -a
+
+sudo docker start 5fb325b28518
+
+sudo docker exec -it 5fb325b28518 /bin/bash
+
+sudo docker cp /data/CosyVoice-300M 5fb325b28518:/home/github
+
+##  **********  deactivate  **********
+cd /var/modelenv && source chattts/bin/activate && cd /home/project/chattts
+cd /var/modelenv && source chatttsui/bin/activate && cd /home/project/chatttsui
+cd /var/modelenv && source cosyvoice300m/bin/activate && cd /home/project/cosyvoice300m
+cd /var/modelenv && source asr-llm-tts/bin/activate && cd /home/project/asr-llm-tts
+cd /var/modelenv && source bailing/bin/activate && cd /home/project/bailing
+cd /var/modelenv && source seed-vc/bin/activate && cd /home/project/seed-vc
+
+mkdir -p /var/modelenv && cd /var/modelenv/ && python -m venv funasr && mkdir -p /home/project/funasr
+cd /var/modelenv && source funasr/bin/activate && cd /home/project/seed-vc
+
+
+
+apt update -y
+apt install ffmpeg htop screen sysstat unzip -y

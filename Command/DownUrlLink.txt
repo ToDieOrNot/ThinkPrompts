@@ -1,0 +1,39 @@
+
+sudo docker pull modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+
+conda avtivate StepAudio
+
+https://pypi.tuna.tsinghua.edu.cn/packages/e5/35/0c52d708144c2deb595cd22819a609f78fdd699b95ff6f0ebcd456e3c7c1/torch-2.6.0-cp312-cp312-manylinux1_x86_64.whl
+
+
+https://pypi.tuna.tsinghua.edu.cn/simple/torch/
+
+
+https://huggingface.co/Tele-AI/TeleSpeech-ASR1.0/blob/main/finetune_large_kespeech.pt
+
+
+学习：(https://www.bilibili.com/video/BV1Q6zpYpEgv)
+
+
+pip install torch torchvision torchaudio -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu118
+
+
+https://huggingface.co/Tele-AI/TeleSpeech-ASR1.0/resolve/main/finetune_large_kespeech.pt
+git clone https://www.modelscope.cn/TeleAI/TeleSpeech-ASR1.0.git
+
+
+huggingface-cli download Tele-AI/TeleSpeech-ASR1.0 finetune_large_kespeech.pt --repo-type model
+
+sudo git clone https://www.modelscope.cn/stepfun-ai/Step-Audio-TTS-3B.git ./
+
+
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu124
+
+pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cu124
+
+pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
+git clone https://www.modelscope.cn/TeleAI/TeleSpeech-ASR1.0.git

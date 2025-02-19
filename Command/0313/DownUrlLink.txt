@@ -1,0 +1,7 @@
+https://pypi.tuna.tsinghua.edu.cn/packages/e5/35/0c52d708144c2deb595cd22819a609f78fdd699b95ff6f0ebcd456e3c7c1/torch-2.6.0-cp312-cp312-manylinux1_x86_64.whl
+
+
+https://huggingface.co/Tele-AI/TeleSpeech-ASR1.0/blob/main/finetune_large_kespeech.pt
+
+
+学习：(https://www.bilibili.com/video/BV1Q6zpYpEgv)

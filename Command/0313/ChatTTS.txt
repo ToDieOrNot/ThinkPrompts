@@ -1,0 +1,25 @@
+=== 查询 ===
+## cuda 12.4
+nvidia-smi
+## python 3.11.3
+python --version
+## conda 23.5.2
+conda --version
+conda env list
+
+
+=== 初始化 ===
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip -y
+python -m pip install --upgrade pip
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+sudo mkdir -p /ChatTTS/Exp1 && cd /ChatTTS/Exp1
+
+=== 安装环境 ===
+conda create --name Exp1 python=3.10.9 -y
+conda activate Exp1
+
+sudo mkdir /ChatTTS && cd /ChatTTS && sudo git clone https://github.com/2noise/ChatTTS.git ./
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu115
+
+pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 -c pytorch

@@ -1,0 +1,27 @@
+conda env list
+conda create --name TeleSpeech python=3.8 -y
+conda deactivate
+conda activate TeleSpeech
+
+
+sudo mkdir -p /TeleSpeech && cd /TeleSpeech
+conda activate TeleSpeech
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip nvidia-cuda-toolkit -y
+python -m pip install --upgrade pip
+conda install pytorch==2.0.1
+pip3 install tensorflow==2.13.0 -i https://pypi.mirrors.ustc.edu.cn/simple
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+pip install modelscope
+
+sudo git lfs install
+sudo git clone https://www.modelscope.cn/TeleAI/TeleSpeech-ASR1.0.git ./
+sudo wget https://modelscope.cn/models/TeleAI/TeleSpeech-ASR1.0/file/view/master?fileName=large.pt&status=2
+
+pip install addict datasets simplejson sortedcontainers
+或
+pip install sortedcontainers -i https://pypi.mirrors.ustc.edu.cn/simple
+
+
+python -c "from modelscope.pipelines import pipeline;asr = pipeline('auto-speech-recognition', model='TeleAI/TeleSpeech-ASR1.0');result = asr('audio.wav');print(result)"
+

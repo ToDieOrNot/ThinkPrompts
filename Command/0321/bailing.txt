@@ -1,0 +1,10 @@
+##  **********  deactivate  **********
+【    https://github.com/wwbin2017/bailing    】
+
+sudo docker ps -a
+
+sudo docker start 5fb325b28518
+
+sudo docker exec -it 5fb325b28518 /bin/bash
+
+cd /var/modelenv && source bailing/bin/activate && cd /home/project/bailing

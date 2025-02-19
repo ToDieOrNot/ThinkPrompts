@@ -1,0 +1,22 @@
+##  **********  deactivate  **********
+
+sudo docker ps -a
+
+sudo docker start 5fb325b28518
+
+sudo docker exec -it 5fb325b28518 /bin/bash
+
+cd /var/modelenv && source chatttsui/bin/activate && cd /home/project/chatttsui
+
+
+"""
+如果不需要CUDA加速，执行
+	pip3 install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0
+如果需要CUDA加速，执行
+	pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+"""
+
+## sudo docker cp /data/torch-2.4.0+cu124-cp310-cp310-linux_x86_64.whl 0e946715f989:/home/whl/
+## pip install /home/whl/torch-2.4.0+cu124-cp310-cp310-linux_x86_64.whl
+
+pip install torchaudio==2.4.0 torchvision=0.19.0 --index-url https://download.pytorch.org/whl/cu124 && pip install nvidia-cublas-cu12 nvidia-cudnn-cu12 --index-url https://download.pytorch.org/whl/cu124

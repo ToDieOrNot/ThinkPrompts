@@ -1,0 +1,94 @@
+watch -n 0.1 nvidia-smi
+
+/var/lib/docker/【默认保存目录】
+
+sudo apt update -y
+
+udo apt list --upgradable
+
+sudo apt install ffmpeg htop screen sysstat unzip nvidia-cuda-toolkit -y
+
+sudo apt install docker.io docker-compose
+
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+    "registry-mirrors": [
+    "https://docker.m.daocloud.io",
+    "https://docker.imgdb.de",
+    "https://docker-0.unsee.tech",
+    "https://docker.hlmirror.com",
+    "https://cjie.eu.org"
+    ]
+}
+EOF
+
+curl -fsSL https://mirrors.ustc.edu.cn/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+&& curl -s -L https://mirrors.ustc.edu.cn/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://nvidia.github.io#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://mirrors.ustc.edu.cn#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart docker
+
+docker --version
+
+docker-compose --version
+
+sudo apt install git -y
+
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+sudo apt-get install git-lfs
+
+命令：
+【镜像下载】sudo docker pull 镜像地址
+modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+modelscope-registry.cn-hangzhou.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+modelscope-registry.us-west-1.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+【查看Docker】sudo docker images  或【查看运行中】sudo docker ps -a
+【删除Docker镜像】sudo docker image rm [image—id]  或sudo docker rmi [image—id]
+【运行1】sudo docker run -it --name modelscope-container 镜像地址	-i（交互模式）-t（分配伪终端）
+【运行2】sudo docker run -it --gpus all TTS/ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2:latest
+【运行示例】sudo docker run -it modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+【停止】sudo docker stop c3da69192b22
+【测试】python -c "import torch; print(torch.__version__)"
+
+【保存容器到镜像】sudo docker commit 容器ID TTS-all/first
+
+【启动容器】sudo docker start 0e946715f989
+
+【进入容器】sudo docker exec -it 0e946715f989 /bin/bash
+
+【退出不关闭容器】在容器内部按下 Ctrl+P 和 Ctrl+Q 组合键
+
+【退出并关闭容器】Ctrl+D 或 exit
+
+【删除已退出容器】sudo docker container prune
+
+【删除单个容器】sudo docker rm 58f048ce726a
+
+【复制文件到容器】sudo docker cp /home/github/ 054effb99e4c:/home
+
+sudo docker run -it modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+
+【升级后docker启动命令】
+sudo docker run -it --gpus all -p 8000:8000 -p 8001:8001 modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2 /bin/bash
+
+sudo docker run -it --gpus all TTS/ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2:latest /bin/bash
+
+sudo docker exec -it 58f048ce726a /bin/bash
+
+【Docker迁移】
+sudo systemctl stop docker
+sudo mkdir -p /data/docker && sudo cp -r /var/lib/docker/* /data/docker/
+sudo nano /etc/docker/daemon.json
+	{
+ 	  "data-root": "/data/docker"
+	}
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo docker info | grep "Docker Root Dir"
+
+
+

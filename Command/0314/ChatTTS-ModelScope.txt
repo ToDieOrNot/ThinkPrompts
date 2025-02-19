@@ -1,0 +1,4 @@
+sudo git lfs install
+conda activate Exp1
+sudo mkdir -p /ChatTTS/Exp1/ChatTTS-ModelScope && cd /ChatTTS/Exp1/ChatTTS-ModelScope && sudo git clone https://www.modelscope.cn/ModelM/ChatTTS-ModelScope.git ./
+du -sh ./* | sort -h

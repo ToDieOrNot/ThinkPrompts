@@ -1,0 +1,27 @@
+##  **********  deactivate  **********
+
+sudo docker ps -a
+
+sudo docker start 5fb325b28518
+
+sudo docker exec -it 5fb325b28518 /bin/bash
+
+cd /var/modelenv && source seed-vc/bin/activatecd /home/project/seed-vc
+
+
+因网络原因无法访问 Hugging Face，请尝试在每个命令前添加 HF_ENDPOINT=https://hf-mirror.com
+运行命令前先设置环境变量: export export HUGGING_FACE_HUB_TOKEN={从https://huggingface.co/settings/tokens获取}
+
+## 实时语音
+python real-time-gui.py --checkpoint-path /home/project/seed-vc/assets/DiT_uvit_tat_xlsr_ema.pth --config-path /home/project/seed-vc/configs/config_real_gpu.yml
+
+## 语音转换
+python app_vc.py --checkpoint /home/project/seed-vc/assets/DiT_uvit_tat_xlsr_ema.pth --config /home/project/seed-vc/configs/config_real_gpu.yml
+
+
+sudo docker cp /data/Seed-VC 0e946715f989:/home/github/
+# # sudo docker cp /data/Seed-VC/DiT_uvit_tat_xlsr_ema.pth 0e946715f989:/home/github/Seed-VC/
+# # sudo docker cp /data/OrginVoice 0e946715f989:/home/
+
+## config_gpu.json错误。应选用 Seed_VC/configs/presets/config_dit_mel_seed_uvit_xlsr_tiny.yml
+{"reference_audio_path": "/home/project/seed-vc/lyl.mp3", "sg_hostapi": "MME", "sg_wasapi_exclusive": false, "sg_input_device": "\u9ea6\u514b\u98ce (Razer BlackShark V2 HS 2.4", "sg_output_device": "\u626c\u58f0\u5668 (Razer BlackShark V2 HS 2.4", "sr_type": "sr_model", "diffusion_steps": 10.0, "inference_cfg_rate": 0.7, "max_prompt_length": 3.0, "block_time": 0.04, "crossfade_length": 0.04, "extra_time": 2.5, "extra_time_right": 0.02}

@@ -1,0 +1,72 @@
+=== 查询 ===
+## cuda 12.4
+nvidia-smi
+## python 3.10.9
+python --version
+## conda 23.5.2
+conda --version
+conda env list
+
+
+=== 初始化 ===
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip nvidia-cuda-toolkit -y
+python -m pip install --upgrade pip
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+sudo mkdir -p /ChatTTS/Exp1 && cd /ChatTTS/Exp1
+
+=== 安装环境 ===【未修改.env】
+conda create --name Exp1 python=3.10.9 -y
+conda activate Exp1
+// pip install torch torchvision torchaudio
+cd /ChatTTS/Exp1 && sudo git clone https://github.com/jianchang512/ChatTTS-ui.git
+cd /ChatTTS/Exp1/ChatTTS-ui && pip install -r requirements.txt
+pip install torch==2.2.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118
+pip install nvidia-cublas-cu11 nvidia-cudnn-cu11
+sudo apt install docker.io docker-compose
+
+【
+sudo vim /etc/docker/daemon.json
+{
+  "data-root": "/home/docker"
+}
+docker --version
+docker-compose --version
+ 】
+
+【
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+    "registry-mirrors": [
+    "https://docker.m.daocloud.io",
+    "https://docker.imgdb.de",
+    "https://docker-0.unsee.tech",
+    "https://docker.hlmirror.com",
+    "https://cjie.eu.org"
+    ]
+}
+EOF
+ 】
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+【
+cd /etc/apt/ && sudo cp sources.list sources.list.old
+sudo vim /etc/apt/sources.list
+根据这个修改“https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/”
+ 】或
+【
+curl -fsSL https://mirrors.ustc.edu.cn/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+&& curl -s -L https://mirrors.ustc.edu.cn/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://nvidia.github.io#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://mirrors.ustc.edu.cn#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+                        
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit
+nvidia-container-cli  --version
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+ 】
+
+cd /ChatTTS/Exp1/ChatTTS-ui && sudo docker-compose -f docker-compose.gpu.yaml up -d

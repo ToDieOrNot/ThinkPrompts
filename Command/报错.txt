@@ -1,0 +1,64 @@
+## 无法访问git clone
+sudo git config --global --unset http.proxy && sudo git config --global --unset https.proxy【有效】
+sudo git clone https://mirror.ghproxy.com/https://github.com/wwbin2017/bailing【无效】
+https://blog.csdn.net/weixin_72023436/article/details/142063110【其他参考】
+
+## Failed building wheel for Pyaudio
+sudo apt install portaudio19-dev build-essential -y【有效】
+
+## AttributeError: BertTokenizerFast has no attribute pad_token. Did you mean: '_pad_token'?
+pip install --upgrade --force-reinstall -q transformers==4.42.4
+
+## ubuntu22.04 RuntimeError: Found no NVIDIA driver on your system.(Docker报错)
+1、sudo apt install -y nvidia-docker2【在非容器中运行】
+2、nvidia-docker run -it --rm --gpus all modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+
+## ls: cannot open directory '/var/lib/docker/': Permission denied
+1、ls /var/lib/docker/
+2、sudo groupadd docker
+3、sudo gpasswd -a $USER docker
+4、sudo service docker restart
+5、sudo systemctl daemon-reload && sudo systemctl restart docker
+6、sudo chmod -R 777 /var/lib/docker/
+7、sudo chown -R linux:linux /var/lib/docker【无效】
+
+## ImportError: cannot import name 'TypeIs' from 'typing_extensions'
+pip install typing_extensions==4.12.2
+
+## TF-TRT Warning: Could not find TensorRT
+pip install TensorRT
+pip install grpcio
+pip install "tensorflow[and-cuda]==2.15" --extra-index-url https://pypi.nvidia.com
+
+## docker镜像没有GPU
+sudo apt-get install -y nvidia-container-toolkit
+curl -fsSL https://mirrors.ustc.edu.cn/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+&& curl -s -L https://mirrors.ustc.edu.cn/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://nvidia.github.io#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://mirrors.ustc.edu.cn#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+## 
+
+## use default LlamaModel for importing TELlamaModel error
+## use default LlamaModel for importing TELlamaModel error: No module named 'transformer_engine
+
+## OSError: PortAudio library not found
+apt-get update
+apt-get install portaudio19-dev -y
+pip install pyaudio
+
+## RuntimeError: CUDA error: invalid device ordinal
+修改real.py文件 1180行default=0
+
+## 无法访问huggingface
+bash:
+	export HF_ENDPOINT="https://hf-mirror.com"
+python:
+	import os
+	os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+
+## module 'ttsfrd' has no attribute 'TtsFrontendEngine'
+pip install "modelscope[audio]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html 【安装语音依赖--无效】
+pip install ttsfrd -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html【有效】

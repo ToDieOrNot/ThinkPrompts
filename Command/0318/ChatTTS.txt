@@ -1,0 +1,21 @@
+sudo docker run -it --gpus all TTS/ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2:latest
+
+cd /home && git clone https://www.modelscope.cn/ModelM/ChatTTS-ModelScope.git
+
+pip list | grep -q torch || pip install torch && pip list | grep -q ChatTTS || pip install ChatTTS && pip list | grep -q vocos || pip install vocos && pip list | grep -q WeTextProcessing || pip install WeTextProcessing && pip list | grep -q vector_quantize_pytorch || pip install vector_quantize_pytorch
+
+cd /home && sudo git clone https://gitee.com/qianchilang/ChatTTS.git
+
+pip install gradio
+
+参照 https://www.modelscope.cn/models/ModelM/ChatTTS-ModelScope，修改model_path = "/data/Model/ChatTTS" 等于ModelM/ChatTTS-ModelScope保存地址
+
+sudo apt-get update &&  sudo apt-get upgrade
+
+cd /home/ChatTTS && python tt_test.py
+
+pip3 install tensorflow==2.13.0 -i https://pypi.mirrors.ustc.edu.cn/simple
+
+pip install WeTextProcessing pynini nvidia-cublas-cu11 nvidia-cudnn-cu11
+
+pip install --no-deps -r requirements.txt
