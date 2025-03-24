@@ -1,0 +1,23 @@
+##  **********  deactivate  **********
+【    https://github.com/wwbin2017/bailing    】
+
+sudo docker ps -a
+
+sudo docker start 5fb325b28518
+
+sudo docker exec -it 5fb325b28518 /bin/bash
+
+cd /var/modelenv && source bailing/bin/activate && cd /home/project/bailing
+
+lsof -i :8001
+
+lsof -t -i:8001 | xargs -r kill -9 && python server/server.py
+
+vim config/config.yaml
+
+vim server/server.py
+
+lsof -t -i:8001 | xargs -r kill -9 && python server/server.py
+
+## 修改记录
+lsof -t -i:8001 | xargs -r kill -9 && vim server/templates/index.html

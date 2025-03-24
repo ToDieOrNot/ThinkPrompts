@@ -23,7 +23,11 @@ ollama serve
 cat /etc/systemd/system/ollama.service
 
 ## 0.0.0.0:8000
-open-webui serve --host 0.0.0.0 --port 8000
-open-webui serve --host 0.0.0.0 --port 8000 > open-webui.log 2>&1
-## open-webui serve
+bash /start.sh
+【废】## open-webui serve --host 0.0.0.0 --port 8000
+【废】## open-webui serve --host 0.0.0.0 --port 8000 > open-webui.log 2>&1
+【废】## open-webui serve
+
+## kill
+lsof -t -i:8000 | xargs -r kill -9 && lsof -t -i:8001 | xargs -r kill -9 && lsof -t -i:11434 | xargs -r kill -9
 

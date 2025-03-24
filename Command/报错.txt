@@ -62,3 +62,6 @@ python:
 ## module 'ttsfrd' has no attribute 'TtsFrontendEngine'
 pip install "modelscope[audio]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html 【安装语音依赖--无效】
 pip install ttsfrd -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html【有效】
+
+## land proxy: listen tcp4 0.0.0.0:8001: bind: address already in use
+sudo systemctl stop ollama && sudo systemctl stop open-webui.service && lsof -t -i:8000 | xargs -r kill -9 && lsof -t -i:8001 | xargs -r kill -9
