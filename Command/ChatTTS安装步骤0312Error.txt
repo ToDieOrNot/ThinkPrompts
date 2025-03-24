@@ -1,5 +1,99 @@
 watch -n 0.1 nvidia-smi
 
+
+————————————————————————————————————————————————
+Linux Ubuntu20.04 命令
+————————————————————————————————————————————————
+
+## --- 硬件查询 ---
+
+### 查询CPU
+- lscpu
+
+### 查询GPU
+- nvidia-smi
+- nvtop
+
+### 查询内存
+- free -h
+
+### 查询占用
+- top //整体
+- du -sh ./* | sort -h //当前空间
+- df -h //磁盘
+- cat /proc/meminfo //系统内存
+- vmstat -s //虚拟内存
+- nvidia-smi //GPU
+sudo netstat -tulnp | grep ':8001' //端口
+sudo lsof -i :8001 //端口
+sudo lsof -i | grep nginx //进程
+sudo ps aux | grep python //进程
+lsof -t -i:8001 | xargs -r kill -9 //杀死端口进程
+sudo kill $(sudo lsof -t -i:8001) //杀死端口进程
+sudo systemctl start ollama //开启进程ollama
+sudo systemctl stop ollama //关闭进程ollama
+sudo systemctl disable ollama
+sudo killall -9 python //终止所有进程
+sudo mkfs -t ext4 /dev/sdb && sudo mkdir -p /data/ && sudo mount /dev/sdb /data/  //挂载【查询 /dev/sdb】
+
+### 后台命令
+- screen -ls //查看全部绘画
+- screen -S sr1 //新建
+- screen -r sr1 //重新连接
+- screen -d sr1 //强制重新连接
+- ctrl A => D //返回终端
+- screen -S r1 -X quit //强制删除会话
+- screen -wipe //清楚过期会话
+- nohup python -u AAA.py > out.log 2>&1 &
+
+## 其他命令
+scp user@192.168.1.100:/home/user/ubuntu_latest.tar /Users/localuser/Downloads/
+
+
+————————————————————————————————————————————————
+open-webui
+————————————————————————————————————————————————
+## pip安装教程
+https://zhuanlan.zhihu.com/p/30628620142
+
+## 列出所有服务
+sudo systemctl list-units --all --type=service
+
+## 列出所有已加载的服务
+sudo systemctl list-units --type=service
+
+## 列出所有未运行的服务
+sudo systemctl list-units --type=service --state=inactive
+
+## 列出服务位置
+sudo systemctl show -p FragmentPath open-webui.service
+cat /lib/systemd/system/open-webui.service
+cat /usr/local/open-webui/start.sh
+conda activate ollama
+
+## 启动/停止服务
+sudo systemctl start ollama
+sudo systemctl start open-webui.service
+sudo systemctl stop ollama
+sudo systemctl stop open-webui.service
+
+bash /usr/local/open-webui/start.sh
+
+
+————————————————————————————————————————————————
+python /ChatTTS/ChatTTS/examples/web/webui.py
+————————————————————————————————————————————————
+
+sudo apt update -y
+sudo apt install ffmpeg htop screen sysstat unzip -y
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+sudo apt install docker-ce docker-ce-cli containerd.io -y
+sudo mkdir -p /ChatTTS/plan5 && cd /ChatTTS/plan5 && sudo git clone https://github.com/jianchang512/ChatTTS-ui.git chat-tts-ui
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+cd /ChatTTS/plan5/chat-tts-ui && sudo docker compose -f docker-compose.gpu.yaml up -d
+//docker compose logs -f --no-log-prefix
+
 ## 0、初始化系统
 - sudo apt update -y
 - sudo apt install ffmpeg htop screen sysstat unzip -y
@@ -72,60 +166,5 @@ watch -n 0.1 nvidia-smi
 
 
 
-————————————————————————————————————————————————
-python /ChatTTS/ChatTTS/examples/web/webui.py
-————————————————————————————————————————————————
 
-## --- 硬件查询 ---
 
-### 查询CPU
-- lscpu
-
-### 查询GPU
-- nvidia-smi
-- nvtop
-
-### 查询内存
-- free -h
-
-### 查询占用
-- top //整体
-- du -sh ./* | sort -h //当前空间
-- df -h //磁盘
-- cat /proc/meminfo //系统内存
-- vmstat -s //虚拟内存
-- nvidia-smi //GPU
-sudo netstat -tulnp | grep ':8001' //端口
-sudo lsof -i :8001 //端口
-sudo lsof -i | grep nginx //进程
-sudo ps aux | grep python //进程
-lsof -t -i:8001 | xargs -r kill -9 //杀死端口进程
-sudo kill $(sudo lsof -t -i:8001) //杀死端口进程
-sudo systemctl stop ollama //关闭进程ollama
-sudo systemctl disable ollama
-sudo killall -9 python //终止所有进程
-sudo mkfs -t ext4 /dev/sdb && sudo mkdir -p /data/ && sudo mount /dev/sdb /data/  //挂载【查询 /dev/sdb】
-
-### 后台命令
-- screen -ls //查看全部绘画
-- screen -S sr1 //新建
-- screen -r sr1 //重新连接
-- screen -d sr1 //强制重新连接
-- ctrl A => D //返回终端
-- screen -S r1 -X quit //强制删除会话
-- screen -wipe //清楚过期会话
-- nohup python -u AAA.py > out.log 2>&1 &
-
-## 其他命令
-scp user@192.168.1.100:/home/user/ubuntu_latest.tar /Users/localuser/Downloads/
-————————————————————————————————————————————————
-
-sudo apt update -y
-sudo apt install ffmpeg htop screen sysstat unzip -y
-sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-sudo apt install docker-ce docker-ce-cli containerd.io -y
-sudo mkdir -p /ChatTTS/plan5 && cd /ChatTTS/plan5 && sudo git clone https://github.com/jianchang512/ChatTTS-ui.git chat-tts-ui
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-cd /ChatTTS/plan5/chat-tts-ui && sudo docker compose -f docker-compose.gpu.yaml up -d
-//docker compose logs -f --no-log-prefix
