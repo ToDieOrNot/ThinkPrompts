@@ -29,5 +29,5 @@ bash /start.sh
 【废】## open-webui serve
 
 ## kill
-lsof -t -i:8000 | xargs -r kill -9 && lsof -t -i:8001 | xargs -r kill -9 && lsof -t -i:11434 | xargs -r kill -9
+(lsof -t -i:8000 | xargs -r kill -9) && (lsof -t -i:8001 | xargs -r kill -9) && (lsof -t -i:11434 | xargs -r kill -9)
 

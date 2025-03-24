@@ -1,0 +1,5 @@
+【参考： https://blog.csdn.net/weixin_42173770/article/details/139348351】
+
+sudo mkdir -p /home/project/ollama && docker pull ollama/ollama:latest
+
+sudo docker run -it --gpus all -p 11434:11434 ollama/ollama:latest /bin/bash

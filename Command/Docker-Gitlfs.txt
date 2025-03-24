@@ -91,4 +91,37 @@ sudo systemctl restart docker
 sudo docker info | grep "Docker Root Dir"
 
 
+sudo vi /etc/docker/daemon.json
+{
+    "data-root": "/data/docker",
+    "registry-mirrors": [
+        "https://docker.1panel.live",
+        "https://hub.rat.dev",
+        "https://docker.actima.top",
+        "https://atomhub.openatom.cn",
+        "https://docker.m.daocloud.io",
+        "https://docker.nastool.de",
+        "https://dockerpull.org",
+        "https://registry.dockermirror.com",
+        "https://docker.m.daocloud.io",
+        "https://docker.1ms.run",
+        "https://docker.aityp.com",
+        "https://dockerhub.xisoul.cn",
+        "https://docker.imgdb.de",
+        "https://hub.littlediary.cn",
+        "https://docker.unsee.tech",
+        "https://hub.crdz.gq",
+        "https://hub.firefly.store",
+        "https://docker.kejilion.pro",
+        "https://dhub.kubesre.xyz",
+        "https://hub.xdark.top",
+        "https://docker.udayun.com"
+    ]
+}
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+
+
+
 

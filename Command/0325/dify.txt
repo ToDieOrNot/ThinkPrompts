@@ -1,0 +1,51 @@
+【参考： https://zhuanlan.zhihu.com/p/24941092574】
+
+sudo mkdir -p /home/project/dify && cd /home/project/dify
+
+sudo git config --global --unset http.proxy && sudo git config --global --unset https.proxy
+
+sudo git clone https://github.com/langgenius/dify.git ./
+
+cd docker && sudo cp middleware.env.example middleware.env && sudo cp .env.example .env
+
+sudo vi /etc/docker/daemon.json
+{
+    "data-root": "/data/docker",
+    "registry-mirrors": [
+        "https://docker.1panel.live",
+        "https://hub.rat.dev",
+        "https://docker.actima.top",
+        "https://atomhub.openatom.cn",
+        "https://docker.m.daocloud.io",
+        "https://docker.nastool.de",
+        "https://dockerpull.org",
+        "https://registry.dockermirror.com",
+        "https://docker.m.daocloud.io",
+        "https://docker.1ms.run",
+        "https://docker.aityp.com",
+        "https://dockerhub.xisoul.cn",
+        "https://docker.imgdb.de",
+        "https://hub.littlediary.cn",
+        "https://docker.unsee.tech",
+        "https://hub.crdz.gq",
+        "https://hub.firefly.store",
+        "https://docker.kejilion.pro",
+        "https://dhub.kubesre.xyz",
+        "https://hub.xdark.top",
+        "https://docker.udayun.com"
+    ]
+}
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+
+sudo docker-compose up -d
+
+## 重启
+sudo docker-compose down
+sudo docker-compose up -d
+
+进入 http://183.220.36.102:31980/install
+邮箱：164093410@qq.com
+用户名：nevermeet
+密码：A@qwezxc123asd

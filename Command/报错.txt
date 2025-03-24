@@ -9,6 +9,38 @@ sudo apt install portaudio19-dev build-essential -y【有效】
 ## AttributeError: BertTokenizerFast has no attribute pad_token. Did you mean: '_pad_token'?
 pip install --upgrade --force-reinstall -q transformers==4.42.4
 
+## docker pull 超时报433
+sudo vi /etc/docker/daemon.json
+{
+    "data-root": "/data/docker",
+    "registry-mirrors": [
+        "https://docker.1panel.live",
+        "https://hub.rat.dev",
+        "https://docker.actima.top",
+        "https://atomhub.openatom.cn",
+        "https://docker.m.daocloud.io",
+        "https://docker.nastool.de",
+        "https://dockerpull.org",
+        "https://registry.dockermirror.com",
+        "https://docker.m.daocloud.io",
+        "https://docker.1ms.run",
+        "https://docker.aityp.com",
+        "https://dockerhub.xisoul.cn",
+        "https://docker.imgdb.de",
+        "https://hub.littlediary.cn",
+        "https://docker.unsee.tech",
+        "https://hub.crdz.gq",
+        "https://hub.firefly.store",
+        "https://docker.kejilion.pro",
+        "https://dhub.kubesre.xyz",
+        "https://hub.xdark.top",
+        "https://docker.udayun.com"
+    ]
+}
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+
 ## ubuntu22.04 RuntimeError: Found no NVIDIA driver on your system.(Docker报错)
 1、sudo apt install -y nvidia-docker2【在非容器中运行】
 2、nvidia-docker run -it --rm --gpus all modelscope-registry.cn-beijing.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
