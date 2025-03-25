@@ -1,0 +1,11 @@
+【官方文档：https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/docker-compose】
+
+【目录】
+cd C:\Model\Dify\docker
+cd C:\Model\Dify_latest\docker
+
+【启动】
+docker-compose up -d
+
+【暂停】
+docker-compose down

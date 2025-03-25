@@ -1,0 +1,23 @@
+【查询端口】
+netstat -ano | findstr 8000
+
+【结束进程】
+taskkill /T /F /PID 9088  【By 进程ID】
+taskkill /pid 13420  -t  -f 【By 进程ID】
+taskkill /F /T /IM 进程名称.exe 【By 进程名】
+for /f "tokens=5" %a in ('netstat -ano ^| findstr :8000') do taskkill /F /T /PID %a 【By 端口号】
+
+【Ollama 修改端口】
+C:\Users\admin\.ollama\config.json
+【Ollama 查看】
+netstat -ano | findstr 8001
+【Ollama 停止】
+for /f "tokens=5" %a in ('netstat -ano ^| findstr :8001') do taskkill /F /T /PID %a
+【Ollama 启动】
+C:\Users\admin\AppData\Local\Programs\Ollama\ollama app.exe
+
+【Dify】
+cd C:\Model\Dify_latest
+
+【ChatttsUI】
+cd C:\Model\ChatttsUI

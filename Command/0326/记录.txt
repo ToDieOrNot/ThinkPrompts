@@ -1,0 +1,4 @@
+未完成报错：chatttsui
+
+【Ollama位置】
+C:\Users\admin\AppData\Local\Programs\Ollama

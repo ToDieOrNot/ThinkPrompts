@@ -1,0 +1,40 @@
+【docker安装：https://zhuanlan.zhihu.com/p/441965046】
+1、开启Hyper-V，重启并检查任务管理器-CPU 虚拟化是否开启
+2、下载docker
+https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe
+3、安装后重启，右击运行图标设置Setting-DockerEngine
+{
+    "data-root": "D:/Docker",
+    "registry-mirrors": [
+        "https://docker.1panel.live",
+        "https://hub.rat.dev",
+        "https://docker.actima.top",
+        "https://atomhub.openatom.cn",
+        "https://docker.m.daocloud.io",
+        "https://docker.nastool.de",
+        "https://dockerpull.org",
+        "https://registry.dockermirror.com",
+        "https://docker.m.daocloud.io",
+        "https://docker.1ms.run",
+        "https://docker.aityp.com",
+        "https://dockerhub.xisoul.cn",
+        "https://docker.imgdb.de",
+        "https://hub.littlediary.cn",
+        "https://docker.unsee.tech",
+        "https://hub.crdz.gq",
+        "https://hub.firefly.store",
+        "https://docker.kejilion.pro",
+        "https://dhub.kubesre.xyz",
+        "https://hub.xdark.top",
+        "https://docker.udayun.com"
+    ],
+    "builder": {
+        "gc": {
+          "defaultKeepStorage": "20GB",
+          "enabled": true
+        }
+    },
+  "experimental": false
+}
+
+【win10安装git：https://blog.csdn.net/Deng872347348/article/details/111883306】

@@ -1,0 +1,11 @@
+【官网：https://ollama.com/download】
+
+【环境变量】
+OLLAMA_BASE_URL = http://127.0.0.1:8010
+OLLAMA_HOST = 0.0.0.0:8010
+
+【拉取】 模型名来源：https://ollama.com/library
+ollama pull qwen2.5:1.5b
+
+【运行】
+ollama run qwen2.5:1.5b

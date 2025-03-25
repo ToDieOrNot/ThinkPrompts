@@ -1,3 +1,5 @@
+【版本对照图】https://blog.csdn.net/shiwanghualuo/article/details/122860521
+
 pip install torch torchvision torchaudio -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple

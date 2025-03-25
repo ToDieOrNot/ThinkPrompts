@@ -1,0 +1,38 @@
+【官方文档：https://github.com/jianchang512/ChatTTS-ui    https://github.com/jianchang512/chatTTS-ui/releases】
+
+【查看端口】
+netstat -ano | findstr 9966
+
+【目录】
+cd C:\Model\ChatttsUI
+
+【克隆】
+git clone https://github.com/jianchang512/ChatTTS-ui.git ./
+
+【完整包下载】
+https://github.com/jianchang512/ChatTTS-ui/releases/download/v1.0/win-ChatTTS-ui-v1.0.7z
+
+【asset模型包下载】
+https://github.com/jianchang512/ChatTTS-ui/releases/download/v1.0/all-models.7z
+
+【启动】
+docker-compose -f docker-compose.gpu.yaml up -d
+
+【暂停】
+docker-compose down
+
+-------------------------------------------------------------------------------------------------
+
+【虚拟环境】
+- [创建]
+conda create --name chatttsui python=3.11 -y
+- [进入]
+conda activate chatttsui
+- [退出]
+conda deactivate
+- [删除]
+conda env remove --name chatttsui
+- [安装]
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+python -m pip install --upgrade pip
+pip install torch==2.2.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118

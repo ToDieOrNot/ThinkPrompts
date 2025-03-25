@@ -1,5 +1,6 @@
 ## 无法访问git clone
 sudo git config --global --unset http.proxy && sudo git config --global --unset https.proxy【有效】
+git config --global http.sslVerify "false" 【win10有效】
 sudo git clone https://mirror.ghproxy.com/https://github.com/wwbin2017/bailing【无效】
 https://blog.csdn.net/weixin_72023436/article/details/142063110【其他参考】
 
