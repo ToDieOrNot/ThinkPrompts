@@ -98,3 +98,9 @@ pip install ttsfrd -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/re
 
 ## land proxy: listen tcp4 0.0.0.0:8001: bind: address already in use
 sudo systemctl stop ollama && sudo systemctl stop open-webui.service && lsof -t -i:8000 | xargs -r kill -9 && lsof -t -i:8001 | xargs -r kill -9
+
+## win10 pynini 安装失败
+conda install -c conda-forge pynini==2.1.5
+
+##  Couldn‘t find appropriate backend to handle uri *** and format None
+pip install pysoundfile

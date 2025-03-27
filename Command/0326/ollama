@@ -9,3 +9,6 @@ ollama pull qwen2.5:1.5b
 
 【运行】
 ollama run qwen2.5:1.5b
+
+
+ollama show qwen2.5:1.5b --modelfile > mymodel.modelfile
