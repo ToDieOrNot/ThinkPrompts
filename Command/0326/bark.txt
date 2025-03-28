@@ -1,0 +1,11 @@
+conda虚拟环境，已安装omni requirement.txt 和 torchvision
+
+python```
+from bark import generate_audio, preload_models
+from scipy.io.wavfile import write
+
+preload_models()
+text = "你好呀，我是你的AI助手，很高兴见到你。"
+audio_array = generate_audio(text)
+write("output.wav", 24000, audio_array)
+```

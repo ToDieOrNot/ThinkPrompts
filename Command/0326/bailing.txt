@@ -11,6 +11,8 @@ git clone https://github.com/wwbin2017/bailing.git ./
 conda create --name bailing python=3.11 -y
 - [进入]
 conda activate bailing
+- [目录]
+cd /d c:/Model/Bailing
 - [退出]
 conda deactivate
 - [删除]

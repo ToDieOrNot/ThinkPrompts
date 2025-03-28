@@ -1,0 +1,13 @@
+【  https://github.com/ABexit/ASR-LLM-TTS/  】
+
+conda create -n alt python=3.10 -y
+
+conda activate alt
+
+cd /d d:/Model/alt
+
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+python -m pip install --upgrade pip
+
+pip install edge-tts==6.1.17 funasr==1.1.12 ffmpeg==1.4 opencv-python==4.10.0.84 transformers==4.45.2 webrtcvad==2.0.10 qwen-vl-utils==0.0.8 pygame==2.6.1 langid==1.1.6 langdetect==1.0.9 accelerate==0.33.0 PyAudio==0.2.14

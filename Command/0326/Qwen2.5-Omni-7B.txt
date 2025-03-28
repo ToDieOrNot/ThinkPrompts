@@ -1,0 +1,10 @@
+conda create -n qwen_omini python=3.10 -y
+
+conda activate qwen_omini
+
+cd /d d:/Model/qwen_omini
+
+git clone https://github.com/QwenLM/Qwen2.5-Omni.git ./
+
+【win10需配置模型和pt下载地址】
+参考：https://www.aisharenet.com/qwen25-omni/

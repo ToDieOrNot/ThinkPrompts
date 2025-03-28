@@ -1,3 +1,6 @@
+【模型缓存-win10】
+C:\Users\admin\.cache
+
 【查询端口】
 netstat -ano | findstr 8000
 

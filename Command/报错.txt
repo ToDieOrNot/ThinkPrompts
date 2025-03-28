@@ -104,3 +104,8 @@ conda install -c conda-forge pynini==2.1.5
 
 ##  Couldn‘t find appropriate backend to handle uri *** and format None
 pip install pysoundfile
+
+## win10 C:\Users\admin\.cache 占用太高
+新建并移动原目录文件，到"D:\UserCache"
+删除原目录"C:\Users\admin\.cache"
+mklink /J "C:\Users\admin\.cache" "D:\UserCache"
