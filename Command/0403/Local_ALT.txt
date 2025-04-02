@@ -1,0 +1,9 @@
+md D:\Code\VoiceTalk1
+
+cd D:\Code\VoiceTalk1
+
+python -m venv ENV_DIR
+
+D:\Code\VoiceTalk\VoiceTalk\Scripts\activate.bat
+
+

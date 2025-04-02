@@ -1,0 +1,44 @@
+conda create --name dolphin python=3.11 -y
+
+conda activate dolphin
+
+
+
+conda deactivate
+
+=====================================
+==== 下列安装失败，因python version 不兼容 3.12 ====
+=====================================
+
+md D:\Code\Dolphin
+
+cd /d D:\Code\Dolphin
+
+python -m venv dolphin
+
+D:\Model\Dolphin\dolphin\Scripts\activate.bat
+
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+python -m pip install --upgrade pip
+
+pip install --upgrade setuptools
+
+python -m ensurepip --upgrade
+
+pip install --force-reinstall setuptools==67.0.0
+
+deactivate
+
+modelscope download --model DataoceanAI/dolphin-small
+
+import dolphin
+
+waveform = dolphin.load_audio("audio.wav")
+model = dolphin.load_model("small", r"C:\Users\admin\.cache\modelscope\hub\models\DataoceanAI", "cuda")
+result = model(waveform)
+# Specify language and region
+result = model(waveform, lang_sym="zh", region_sym="CN")
+print(result.text)
+
+C:\Users\admin\.cache\modelscope\hub\models\DataoceanAI\dolphin-small

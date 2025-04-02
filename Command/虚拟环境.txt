@@ -15,3 +15,13 @@ deactivate
 cd /home/ChatTTS && pip install -r requirements.txt
 
 cd /var/modelenv && rm -r envtts/
+
+【win10创建虚拟环境】 D:\Code\ThinkPrompts\WinBat\Python_Create_Venv\Python_Create_Venv5(cursor).bat D:\Code\test_venv
+
+我希望在windows10环境下，新建一个bat文件，当执行"Python_Create_Venv.bat D:\Code\test_venv"时，实现以下效果：
+1、获取参数为项目目录，如果参数是"test_venv"，则默认存放在D:\Code，即"D:\Code\test_venv"，如果参数名是"D:\Code\test_venv"，则正常处理
+2、执行"md {项目目录绝对路径}"，示例：md D:\Code\test_venv
+3、"cd {项目目录绝对路径}"，示例：cd D:\Code\test_venv
+4、项目目录名和虚拟环境名，应保持一致。执行"python -m venv {虚拟环境名}"，示例：python -m venv test_venv
+5、进入虚拟环境。执行"{项目目录绝对路径}\{虚拟环境名}\\Scripts\activate.bat"，示例：D:\Code\test_venv\test_venv\Scripts\activate.bat
+请帮我编写bat文件,命令代码不能出现中文。

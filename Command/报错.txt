@@ -109,3 +109,12 @@ pip install pysoundfile
 新建并移动原目录文件，到"D:\UserCache"
 删除原目录"C:\Users\admin\.cache"
 mklink /J "C:\Users\admin\.cache" "D:\UserCache"
+
+## Failed to build webrtcvad
+## ERROR: Failed to build installable wheels for some pyproject.toml based projects (webrtcvad)
+pip install webrtcvad-wheels
+
+
+## (base) linux@ubuntu-0682:/home/project/seed-vc$ uv init
+## error: failed to create file `/home/project/seed-vc/main.py`: Permission denied (os error 13)
+(base) linux@ubuntu-0682:/home/project/seed-vc$ sudo chmod -R 777 /home
