@@ -71,3 +71,13 @@ uv sync
 // .venv/Scripts/activate
 source .venv/bin/activate
 uv pip list
+
+``` ====================================================================================================== ```
+
+## 打包
+
+- 构建包
+uv build
+
+- 发布包
+uv publish
