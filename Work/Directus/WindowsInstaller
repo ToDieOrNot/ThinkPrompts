@@ -18,13 +18,15 @@
     4、` node -v (或` node --version `) 和 ` npm -v ` 和 ` npx -v `；
     5、下载并安装C++依赖：` https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/ `；
     6、配置npm存储空间：
-        npm config set prefix "D:\nodejs\node_global"
-        npm config set cache "D:\nodejs\node_cache"
-    7、运行  npx directus-template-cli@latest init [不可用，跳至第8步]；
+        npm config set prefix "D:\NodeJS\node_global"
+        npm config set cache "D:\NodeJS\node_cache"
+    7、## 运行  npx directus-template-cli@latest init [不可用，跳至第8步]；
     8、【可选代理配置】
         npm config set registry https://registry.npmmirror.com
         或
-        npm config set proxy http://127.0.0.1:10809
-        npm config set https-proxy http://127.0.0.1:10809
+        npm config set proxy "http://127.0.0.1:10809"
+        npm config set https-proxy "http://127.0.0.1:10809"
     9、可以清楚缓存并删除原项目目录：` npm cache clean --force ` + ` rd /s /q example-project `；
     10、powershell命令行运行  ` npm init directus-project directus_demo `；
+
+## 安装Mysql
