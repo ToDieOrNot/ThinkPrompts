@@ -11,6 +11,9 @@
     4、使用` ssh git@github.com `测试
 
 
+## 安装Mysql
+    1、下载安装 ` https://dev.mysql.com/downloads/mysql/ `
+
 ## 下载node.js
     1、进入` https://nodejs.org/en `下载；
     2、在全英文路径下，安装.msi文件，全程默认安装；
@@ -29,4 +32,3 @@
     9、可以清楚缓存并删除原项目目录：` npm cache clean --force ` + ` rd /s /q example-project `；
     10、powershell命令行运行  ` npm init directus-project directus_demo `；
 
-## 安装Mysql
