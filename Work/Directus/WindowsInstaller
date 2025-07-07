@@ -1,3 +1,16 @@
+## 安装Git
+    1、安装Git：` https://git-scm.com/downloads/win ` 和 ` https://desktop.github.com/download/ `
+    2、本地注册(依次输入)
+        git config --global user.name "ToDieOrNot"
+        git config --global user.email "qq164093410@gmail.com"
+        ssh-keygen -t rsa -C "qq164093410@gmail.com"
+        三个回车确认，在` C:\Users\Administrator\.ssh `复制id_rsa.pub文件内容到` https://github.com/settings/keys ` [New SSH key中的title随便输入]
+    3、设置代理(依次输入)
+        git config --global http.proxy 'socks5://127.0.0.1:10809'
+        git config --global https.proxy 'socks5://127.0.0.1:10809'
+    4、使用` ssh git@github.com `测试
+
+
 ## 下载node.js
     1、进入` https://nodejs.org/en `下载；
     2、在全英文路径下，安装.msi文件，全程默认安装；
