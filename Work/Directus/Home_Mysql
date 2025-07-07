@@ -1,0 +1,44 @@
+Executing step: Writing configuration file
+
+Saving my.ini configuration file...
+Saved my.ini configuration file.
+Completed execution of step: Writing configuration file
+
+Executing step: Updating Windows Firewall rules
+
+Adding a Windows Firewall rule for MySQL on port 3306.
+Attempting to add a Windows Firewall rule with command: netsh.exe advfirewall firewall add rule name="Port 3306" protocol=TCP localport=3306 dir=in action=allow
+确定。
+
+
+Successfully added the Windows Firewall rule.
+Adding a Windows Firewall rule for MySQL on port 33060.
+Attempting to add a Windows Firewall rule with command: netsh.exe advfirewall firewall add rule name="Port 33060" protocol=TCP localport=33060 dir=in action=allow
+确定。
+
+
+Successfully added the Windows Firewall rule.
+Completed execution of step: Updating Windows Firewall rules
+
+Executing step: Adjusting Windows service
+
+Attempting to grant the required filesystem permissions to the 'NT AUTHORITY\NetworkService' account.
+Granted permissions to the data directory.
+Granted permissions to the install directory.
+Adding new service
+New service added
+Completed execution of step: Adjusting Windows service
+
+Executing step: Initializing database (may take a long time)
+
+Attempting to run MySQL Server with --initialize-insecure option...
+Starting process for MySQL Server 9.3.0...
+Starting process with command: C:\Program Files\MySQL\MySQL Server 9.3\bin\mysqld.exe --defaults-file="D:\SoftWare\Mysql\MysqlData\my.ini" --console --initialize-insecure=on --lower-case-table-names=1...
+MySQL Server Initialization - start.
+C:\Program Files\MySQL\MySQL Server 9.3\bin\mysqld.exe (mysqld 9.3.0) initializing of server in progress as process 36836
+InnoDB initialization has started.
+InnoDB initialization has ended.
+root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+MySQL Server Initialization - end.
+Process for mysqld, with ID 36836, was run successfully and exited with code 0.
+Successfully started pro
