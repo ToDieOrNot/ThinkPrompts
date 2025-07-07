@@ -69,7 +69,9 @@ uv init
 // echo "" > pyproject.toml
 uv sync
 // .venv/Scripts/activate
-source .venv/bin/activate
+// source .venv/bin/activate
+.venv/bin/activate
+python -m pip install --upgrade pip
 uv pip list
 
 ``` ====================================================================================================== ```
