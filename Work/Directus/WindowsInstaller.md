@@ -1,0 +1,54 @@
+## 安装Git
+    1、安装Git：` https://git-scm.com/downloads/win ` 和 ` https://desktop.github.com/download/ `
+    2、本地注册(依次输入)
+        git config --global user.name "ToDieOrNot"
+        git config --global user.email "qq164093410@gmail.com"
+        ssh-keygen -t rsa -C "qq164093410@gmail.com"
+        三个回车确认，在` C:\Users\Administrator\.ssh `复制id_rsa.pub文件内容到` https://github.com/settings/keys ` [New SSH key中的title随便输入]
+    3、设置代理(依次输入)
+        git config --global http.proxy 'socks5://127.0.0.1:10809'
+        git config --global https.proxy 'socks5://127.0.0.1:10809'
+    4、使用` ssh git@github.com `测试
+
+
+## 安装Mysql
+    1、下载安装 ` https://dev.mysql.com/downloads/mysql/ `
+    2、新建数据库
+        Command Line Client >> ``` CREATE DATABASE solution; ```
+
+
+## 下载node.js
+    1、进入` https://nodejs.org/en `下载；
+    2、在全英文路径下，安装.msi文件，全程默认安装；
+    3、Finish后，验证安装；
+    4、` node -v (或` node --version `) 和 ` npm -v ` 和 ` npx -v `；
+    5、下载并安装C++依赖：` https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/ `；
+    6、配置npm存储空间：
+        npm config set prefix "D:\NodeJS\node_global"
+        npm config set cache "D:\NodeJS\node_cache"
+
+
+## directus启动
+    ``` (中文手册)[https://ezdoc.cn/docs/directus] ```
+    1、## 运行  npx directus-template-cli@latest init [不可用]；
+    2、【可选代理配置】
+        npm config set registry https://registry.npmmirror.com
+        或
+        npm config set proxy "http://127.0.0.1:10809"
+        npm config set https-proxy "http://127.0.0.1:10809"
+    3、可以清楚缓存并删除原项目目录：` npm cache clean --force ` + ` rd /s /q example-project `；
+    4、powershell命令行运行  ``` npm init directus-project solution ```；
+    5、启动
+        cd D:\Code\directus_demo[.env](..%2F..%2F..%2Fsolution%2F.env)
+        npx directus start
+    6、登录
+        ` http://127.0.0.1:8055/ `
+        164093410@qq.com
+        A@qwezxc123asd
+
+
+## directus彻底卸载
+    1、powershell >> ``` rm -r -fo solution ```
+    2、powershell >> ``` npm cache clean --force ```
+    3、powershell >> ``` npm uninstall -g directus ```
+    4、Command Line Client >> ``` DROP DATABASE IF EXISTS Mysql; ``` 或卸载Mysql
