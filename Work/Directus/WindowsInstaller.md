@@ -37,7 +37,7 @@
         npm config set proxy "http://127.0.0.1:10809"
         npm config set https-proxy "http://127.0.0.1:10809"
     3、可以清楚缓存并删除原项目目录：` npm cache clean --force ` + ` rd /s /q example-project `；
-    4、powershell命令行运行  ``` npm init directus-project solution ```；
+    4、powershell命令行运行  ``` npm ini[.env](..%2F..%2F..%2Fsolution%2F.env)t directus-project solution ```；
     5、启动
         cd D:\Code\directus_demo[.env](..%2F..%2F..%2Fsolution%2F.env)
         npx directus start
